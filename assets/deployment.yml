@@ -1,0 +1,9 @@
+name: default
+endpoint_name: iris-logreg-endpoint
+model: azureml:iris-logreg-model:2
+code_configuration:
+  code: ../model
+  scoring_script: score.py
+environment: azureml:iris-env:2
+instance_type: Standard_DS2_v2
+instance_count: 1

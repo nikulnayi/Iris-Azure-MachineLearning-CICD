@@ -1,0 +1,9 @@
+# assets/environment.yml
+name: iris-env
+dependencies:
+  - python=3.8
+  - pip:
+      - scikit-learn
+      - pandas
+      - joblib
+      - azureml-inference-server-http

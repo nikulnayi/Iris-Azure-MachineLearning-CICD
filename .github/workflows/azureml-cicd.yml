@@ -1,0 +1,52 @@
+name: Azure ML CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  train-register-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    - name: Install Azure ML CLI v2
+      run: |
+        pip install azure-cli
+        az config set extension.use_dynamic_install=yes_without_prompt
+        az extension add --name ml
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Train Model
+      run: |
+        pip install -r requirements.txt
+        python src/train.py
+
+    - name: Register Model
+      run: |
+        az ml model create \
+          --name iris-logreg-model \
+          --version 3 \
+          --type custom_model \
+          --path outputs/model.joblib \
+          --resource-group MachineLearningCICD \
+          --workspace-name MachineLearningCICDWorkspace
+
+    - name: Deploy Model
+      run: |
+        az ml online-deployment update \
+          --file assets/deployment.yml \
+          --resource-group MachineLearningCICD \
+          --workspace-name MachineLearningCICDWorkspace

@@ -32,7 +32,7 @@ GitPython==3.1.44
 google-auth==2.39.0
 h11==0.14.0
 idna==3.10
-importlib_metadata==8.6.1
+importlib_metadata
 isodate==0.7.2
 joblib==1.4.2
 jsonpickle==4.0.5

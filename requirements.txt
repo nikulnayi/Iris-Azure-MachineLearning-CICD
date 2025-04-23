@@ -37,7 +37,7 @@ isodate==0.7.2
 joblib==1.4.2
 jsonpickle==4.0.5
 jsonschema==4.23.0
-jsonschema-specifications==2024.10.1
+jsonschema-specifications
 marshmallow==3.26.1
 mlflow-skinny==2.21.3
 msal==1.32.0

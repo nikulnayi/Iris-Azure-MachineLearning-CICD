@@ -90,8 +90,6 @@ starlette
 strictyaml
 threadpoolctl
 tqdm
-typing-inspection
-typing_extensions
 tzdata
 urllib3
 uvicorn

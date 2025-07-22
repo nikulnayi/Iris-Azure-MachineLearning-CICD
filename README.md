@@ -133,4 +133,4 @@ Built with:
 
 ## 🧠 Want Help?
 
-DM me on [LinkedIn](https://linkedin.com) or [open an issue](https://github.com)!
+DM me on [LinkedIn](https://www.linkedin.com/in/nikul-nayi/) or [open an issue](https://github.com)!
